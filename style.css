@@ -20,6 +20,8 @@ body {
 .calculator {
   background-color: lightgray;
   border-radius:10px;
+  padding-top:30px;
+  padding-bottom:20px;
 }
 .screen {
   margin: 10px;
@@ -34,6 +36,8 @@ body {
 
 .style-footer {
   flex-shrink: 0;
+}
+.btn-footer {
 }
 
 
