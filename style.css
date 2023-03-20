@@ -1,0 +1,41 @@
+/* style for simple calc*/
+
+html, body, .fila {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.air {
+  margin-top    : 20px;
+  margin-bottom : 20px;
+}
+
+.center-div {
+  flex: 1 0 auto;
+}
+.calculator {
+  background-color: lightgray;
+  border-radius:10px;
+}
+.screen {
+  margin: 10px;
+  padding: 10px;
+  background-color: black;
+  color: lightgreen;
+  border-radius:5px;
+  font-weight: bold;
+
+
+}
+
+.style-footer {
+  flex-shrink: 0;
+}
+
+
+
+
