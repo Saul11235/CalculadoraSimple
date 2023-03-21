@@ -1,5 +1,7 @@
 /* style for simple calc*/
 
+/* general styles */
+
 html, body, .fila {
   height: 100%;
 }
@@ -11,13 +13,20 @@ body {
 
 .air {
   margin-top    : 20px;
-  margin-bottom : 20px;
 }
 
 .center-div {
   flex: 1 0 auto;
 }
+
+/* styles for calculator*/
+.legend_cal {
+  color: black;
+  text-align: center;
+}
 .calculator {
+  max-width: 500px;
+
   background-color: lightgray;
   border-radius:10px;
   padding-top:30px;
@@ -27,17 +36,38 @@ body {
   margin: 10px;
   padding: 10px;
   background-color: black;
-  color: lightgreen;
   border-radius:5px;
+}
+.digit_lcd {
+  color: lightgreen;
   font-weight: bold;
-
-
+  min-height: 3rem;
 }
 
+.background-keyboard {
+  margin:  10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: gray;
+  color: red;
+}
+  /*keys*/
+.calc_key {
+  font-weight: bold;
+  
+}
+
+
+/* footer */
+
 .style-footer {
+  margin-top:20px;
   flex-shrink: 0;
 }
 .btn-footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
 }
 
 
