@@ -65,7 +65,12 @@ function set_operation(Symbol_input) {
 
 
 function EQUAL_BUTTON() {
+  console.log("------------------------------")
+  console.log("CURRENT SYMBOL:")
   console.log(CurrentSymbol);
+  console.log("CURRENT NUMBER:")
   console.log(CurrentNumber);
+  console.log("LAST SYMBOL:")
   console.log(LastNumber);
+  console.log("------------------------------")
 }
