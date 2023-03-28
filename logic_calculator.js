@@ -52,7 +52,6 @@ function actionPoint() {
 }
 
 function set_operation(Symbol_input) {
-  console.log("OREPACIONn INICIA------------------------")
   console.log(LastNumber)
   CurrentSymbol = Symbol_input;
   if (CurrentNumber == "" ) {
@@ -63,23 +62,54 @@ function set_operation(Symbol_input) {
     LastNumber = parseFloat(CurrentNumber);
   } 
   console.log(LastNumber);
-  CurrentNumber = "";
-  if (CurrentSymbol == "" ) {
-    EQUAL_BUTTON();
-  }
   CurrentSymbol = Symbol_input;
   toScreen(CurrentSymbol,"0");
-  console.log("OREPACIONn FINAL------------------------");
 }
 
-
 function EQUAL_BUTTON() {
-  console.log("------------------------------");
-  console.log("CURRENT SYMBOL:");
-  console.log(CurrentSymbol);
-  console.log("CURRENT NUMBER:");
-  console.log(CurrentNumber);
-  console.log("LAST NUMBER:");
-  console.log(LastNumber);
-  console.log("------------------------------");
+  var num1 = LastNumber;
+  var num2 = 0;
+  /*---------*/
+  if (CurrentNumber == "" ) {
+    num2 = 0;
+  } else if (CurrentNumber.indexOf(".") == -1)  {
+    num2 = parseInt(CurrentNumber);
+  } else {
+    num2 = parseFloat(CurrentNumber);
+  }
+  /*---------*/
+  if (CurrentSymbol == "") {
+    LastNumber = num2;
+    CurrentNumber = "";
+    toScreen ("","0");
+  } else if (CurrentSymbol == "+") {
+    LastNumber = num1+num2;
+    var resp=num1+num2;
+    CurrentNumber="";
+    CurrentSymbol="";
+    toScreen("",resp);
+  } else if (CurrentSymbol == "-") {
+    LastNumber = num1-num2;
+    var resp=num1-num2;
+    CurrentNumber="";
+    CurrentSymbol="";
+    toScreen("",resp);
+  } else if (CurrentSymbol == "*") {
+    LastNumber = num1*num2;
+    var resp=num1*num2;
+    CurrentNumber="";
+    CurrentSymbol="";
+    toScreen("",resp);
+  } else if (CurrentSymbol =="/" && num2 ==0 ) {
+    LastNumber = 0;
+    CurrentNumber = "";
+    CurrentSymbol = "";
+    toScreen("!","Error div 0")
+  } else if (CurrentSymbol =="/" && num2 !=0 ) {
+    LastNumber = num1/num2;
+    var resp=num1/num2;
+    CurrentNumber="";
+    CurrentSymbol="";
+    toScreen("",resp);
+  }
 }
