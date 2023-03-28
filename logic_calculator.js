@@ -17,8 +17,15 @@ function key(code) {
   } else if (code == ".") {
     actionPoint();
   } else if (code == "+") {
-    actionPLUS();
+    set_operation("+");
+  } else if (code == "-") {
+    set_operation("-");
+  } else if (code == "*") {
+    set_operation("*");
+  } else if (code == "=") {
+    EQUAL_BUTTON();
   }
+
 
 } 
 
@@ -42,23 +49,23 @@ function actionPoint() {
   }
 }
 
-function set_lastNumber() {
+function set_operation(Symbol_input) {
+  CurrentSymbol = Symbol_input;
   LastNumber = 0;
   if (CurrentNumber.indexOf(".") == -1) {
     LastNumber = CurrentNumber.parseInt(CurrentNumber);
+  } else if (CurrentNumber == "")  {
+    LastNumber = 0;
   } else {
     LastNumber = CurrentNumber.parseFloat(CurrentNumber);
   } 
-  CurrentNumber="";
-  var numberhtml= document.getElementById("numbers");
-  numberhtml.innerHTML = "0";
-  var symbolhtml= document.getElementById("symbol");
-  symbolhtml.innerHTML = CurrentSymbol;
-}
-
-function actionPLUS() {
-  CurrentSymbol="+";
-  set_lastNumber();
+  CurrentNumber = String();
+  toScreen(CurrentSymbol,"0")
 }
 
 
+function EQUAL_BUTTON() {
+  console.log(CurrentSymbol);
+  console.log(CurrentNumber);
+  console.log(LastNumber);
+}
