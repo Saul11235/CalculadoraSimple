@@ -22,6 +22,8 @@ function key(code) {
     set_operation("-");
   } else if (code == "*") {
     set_operation("*");
+  } else if (code =="/") {
+    set_operation("/");
   } else if (code == "=") {
     EQUAL_BUTTON();
   }
@@ -30,9 +32,9 @@ function key(code) {
 } 
 
 function numberkeyAction(number) {
+
   if ((number == 0 && CurrentNumber != "" || number != 0)
      && CurrentNumber.length < 14 )  {
-    console.log(typeof number);
     let variableStr = number.toString();
     CurrentNumber += variableStr;
     toScreen(CurrentSymbol,CurrentNumber);
@@ -50,27 +52,34 @@ function actionPoint() {
 }
 
 function set_operation(Symbol_input) {
+  console.log("OREPACIONn INICIA------------------------")
+  console.log(LastNumber)
   CurrentSymbol = Symbol_input;
-  LastNumber = 0;
-  if (CurrentNumber.indexOf(".") == -1) {
-    LastNumber = CurrentNumber.parseInt(CurrentNumber);
-  } else if (CurrentNumber == "")  {
+  if (CurrentNumber == "" ) {
     LastNumber = 0;
+  } else if (CurrentNumber.indexOf(".") == -1)  {
+    LastNumber = parseInt(CurrentNumber);
   } else {
-    LastNumber = CurrentNumber.parseFloat(CurrentNumber);
+    LastNumber = parseFloat(CurrentNumber);
   } 
-  CurrentNumber = String();
-  toScreen(CurrentSymbol,"0")
+  console.log(LastNumber);
+  CurrentNumber = "";
+  if (CurrentSymbol == "" ) {
+    EQUAL_BUTTON();
+  }
+  CurrentSymbol = Symbol_input;
+  toScreen(CurrentSymbol,"0");
+  console.log("OREPACIONn FINAL------------------------");
 }
 
 
 function EQUAL_BUTTON() {
-  console.log("------------------------------")
-  console.log("CURRENT SYMBOL:")
+  console.log("------------------------------");
+  console.log("CURRENT SYMBOL:");
   console.log(CurrentSymbol);
-  console.log("CURRENT NUMBER:")
+  console.log("CURRENT NUMBER:");
   console.log(CurrentNumber);
-  console.log("LAST SYMBOL:")
+  console.log("LAST NUMBER:");
   console.log(LastNumber);
-  console.log("------------------------------")
+  console.log("------------------------------");
 }
